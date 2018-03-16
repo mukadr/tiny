@@ -1,0 +1,23 @@
+res 2
+ldc 0
+call 0
+lab 0
+ldv 0
+ldc 0
+le 1
+ldc 1
+ldv 1
+ldv 0
+adi
+sti
+ldc 0
+ldv 0
+ldc 1
+sbi
+sti
+go 0
+lab 1
+ldv 1
+call 1
+halt
+

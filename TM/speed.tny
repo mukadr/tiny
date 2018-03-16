@@ -1,0 +1,16 @@
+var
+	integer i, j, x
+main
+	i := 0
+	j := 0
+	x := 0
+	while i < 10 do
+		while j < 10 do
+			x := i+j
+			j := j+1
+		wend
+		i := i + 1
+	wend
+	write x
+end
+

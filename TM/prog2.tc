@@ -1,0 +1,22 @@
+res 2
+lab 0
+ldc 1
+ldv 1
+ldc 1
+adi
+sti
+ldc 0
+ldv 1
+ldc 10000
+ne 1
+ldc 1
+go 2
+lab 1
+ldc 0
+lab 2
+sti
+ldv 1
+call 1
+go 0
+halt
+

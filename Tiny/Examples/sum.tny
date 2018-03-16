@@ -1,0 +1,11 @@
+var
+	integer i, sum
+
+main
+	read i
+	while i > 0 do
+		sum := sum + i
+		i := i - 1
+	wend
+	write sum
+end
