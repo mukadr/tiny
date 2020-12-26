@@ -70,11 +70,13 @@ var
 
 */
 
+#include <assert.h>
+#include <stdlib.h>
+
 #include "globals.h"
 #include "scan.h"
 #include "util.h"
 #include "parse.h"
-#include <stdlib.h>
 
 static TokenType token;
 
@@ -254,7 +256,7 @@ static TreeNode *block()
 
 static TreeNode *stmt()
 {
-	TreeNode *t = NULL;
+	TreeNode *t;
 
 	switch (token)
 	{
@@ -264,6 +266,7 @@ static TreeNode *stmt()
 		case TOK_REPEAT: t = repeat_stmt(); break;
 		case TOK_WRITE: t = write_stmt(); break;
 		case TOK_READ: t = read_stmt(); break;
+		default: t = NULL; break;
 	}
 
 	return t;
@@ -558,6 +561,10 @@ void destroyTree(TreeNode *t)
 			case VarK:
 				if (t->attr.s != NULL)
 						free(t->attr.s);
+				break;
+
+			default:
+				assert(!"unreachable code");
 				break;
 		}
 		free(t);
