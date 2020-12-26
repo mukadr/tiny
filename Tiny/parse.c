@@ -1,10 +1,8 @@
 /*******************************************************************
-/*   			  SCAN.C -> ANALISADOR SINTÁTICO
-/*		Apenas para testes, completamente experimental...
-/*
-/*
-/*  by mauro dreissig - 01/2007
-/*******************************************************************/
+ *   			  PARSE.C -> ANALISADOR SINTÁTICO
+ *
+ *  by mauro dreissig - 01/2007
+ *******************************************************************/
 
 /*
 	REGRA EBNF
