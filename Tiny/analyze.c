@@ -1,3 +1,5 @@
+#include <assert.h>
+
 #include "analyze.h"
 #include "symtab.h"
 
@@ -43,13 +45,13 @@ void typeCheck(TreeNode *t)
 				case AssignK:
 					if ( (t->expType = st_getType(t->attr.s)) == -1)
 					{
-						fprintf(listing, "Variable %s not declared at line %d\n", t->attr.s, t->lineNum);
+						fprintf(listing, "Variable %s not declared at line %lu\n", t->attr.s, t->lineNum);
 						analyzeError = TRUE;
 						break;
 					}
 					if (t->child[0]->expType != t->expType)
 					{
-						fprintf(listing, "Incompatible types in assignment at line %d\n", t->lineNum);
+						fprintf(listing, "Incompatible types in assignment at line %lu\n", t->lineNum);
 						analyzeError = TRUE;
 						break;
 					}
@@ -57,7 +59,7 @@ void typeCheck(TreeNode *t)
 				case IfK:
 					if (t->child[0]->expType != BooleanK)
 					{
-						fprintf(listing, "Incompatible types in if expression at line %d\n", t->lineNum);
+						fprintf(listing, "Incompatible types in if expression at line %lu\n", t->lineNum);
 						analyzeError = TRUE;
 						break;
 					}				
@@ -65,7 +67,7 @@ void typeCheck(TreeNode *t)
 				case WhileK:
 					if (t->child[0]->expType != BooleanK)
 					{
-						fprintf(listing, "Incompatible types in while expression at line %d\n", t->lineNum);
+						fprintf(listing, "Incompatible types in while expression at line %lu\n", t->lineNum);
 						analyzeError = TRUE;
 						break;
 					}				
@@ -73,10 +75,13 @@ void typeCheck(TreeNode *t)
 				case RepeatK:
 					if (t->child[1]->expType != BooleanK)
 					{
-						fprintf(listing, "Incompatible types in repeat expression at line %d\n", t->lineNum);
+						fprintf(listing, "Incompatible types in repeat expression at line %lu\n", t->lineNum);
 						analyzeError = TRUE;
 						break;
 					}				
+					break;
+				default:
+					assert(!"unreachable code");
 					break;
 			}
 		} 
@@ -93,7 +98,7 @@ void typeCheck(TreeNode *t)
 				case IdK:
 					if ( (t->expType = st_getType(t->attr.s)) == -1)
 					{
-						fprintf(listing, "Variable %s not declared at line %d\n", t->attr.s, t->lineNum);
+						fprintf(listing, "Variable %s not declared at line %lu\n", t->attr.s, t->lineNum);
 						analyzeError = TRUE;
 					}
 					break;
@@ -102,7 +107,7 @@ void typeCheck(TreeNode *t)
 					{
 						if (t->child[0]->expType != t->child[1]->expType)
 						{
-							fprintf(listing, "Incompatible types at line %d\n", t->lineNum);
+							fprintf(listing, "Incompatible types at line %lu\n", t->lineNum);
 							analyzeError = TRUE;
 							break;
 						}
@@ -111,7 +116,7 @@ void typeCheck(TreeNode *t)
 					else if (t->child[0]->expType != IntegerK || 
 				             t->child[1]->expType != IntegerK)
 					{
-						fprintf(listing, "Incompatible types at line %d\n", t->lineNum);
+						fprintf(listing, "Incompatible types at line %lu\n", t->lineNum);
 						analyzeError = TRUE;
 						break;					
 					}

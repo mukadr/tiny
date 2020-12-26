@@ -1,3 +1,5 @@
+#include <assert.h>
+
 #include "globals.h"
 #include "cgen.h"
 #include "symtab.h"
@@ -150,6 +152,7 @@ void genCode(TreeNode *t)
 							case TOK_MUL: sprintf(code, "mli"); break;
 							case TOK_DIV: sprintf(code, "dvi"); break;
 							case TOK_MOD: sprintf(code, "mdi"); break;
+							default: assert(!"unreachable code"); break;
 						}
 						cg_emit(code);
 					}
@@ -163,6 +166,7 @@ void genCode(TreeNode *t)
 							case TOK_GE: sprintf(code, "lt %d", labelCounter); break;
 							case TOK_LT: sprintf(code, "ge %d", labelCounter); break;
 							case TOK_LE: sprintf(code, "gt %d", labelCounter); break;
+							default: assert(!"unreachable code"); break;
 						}
 						cg_emit(code);
 					}

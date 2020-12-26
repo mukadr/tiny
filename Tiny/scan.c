@@ -1,8 +1,8 @@
 /*******************************************************************
-/*   			  SCAN.C -> ANALISADOR LÉXICO
-/*******************************************************************/
+ *   			  SCAN.C -> ANALISADOR LÉXICO
+ *******************************************************************/
 
-
+#include <ctype.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -58,6 +58,7 @@ static int getReservedStr(TokenType tok)
 	for (i = 0; i < MAX_RESERVED; i++)
 		if (tok == reservedTable[i].t)
 			return i;
+	return 0;
 }
 
 static char getNextChar()
@@ -232,6 +233,9 @@ TokenType getToken()
 					save = FALSE;
 				}
 				break;
+
+			case DONE:
+				break;
 		}
 		if (save)
 			tokenStr[tokenStrIdx++] = currentChar;
@@ -273,11 +277,11 @@ void printToken(TokenType tok, const char *tokStr, int nl)
 		case TOK_DO:
 		case TOK_TRUE:
 		case TOK_FALSE:
-			fprintf(listing, "Reserved: %s", reservedTable[getReservedStr(tok)]);
+			fprintf(listing, "Reserved: %s", reservedTable[getReservedStr(tok)].s);
 			break;
 		case TOK_ID: fprintf(listing, "TOK_ID: %s", tokStr); break;
 		case TOK_NUM: fprintf(listing, "TOK_NUM: %s", tokStr); break;
-		case TOK_ERROR: fprintf(listing, "TOK_ERROR", tokStr); break;
+		case TOK_ERROR: fprintf(listing, "TOK_ERROR"); break;
 
 		case TOK_ASSIGN: fprintf(listing, "':='"); break;
 		case TOK_EQ: fprintf(listing, "'='"); break;
@@ -290,12 +294,14 @@ void printToken(TokenType tok, const char *tokStr, int nl)
 		case TOK_SUB: fprintf(listing, "'-'"); break;
 		case TOK_MUL: fprintf(listing, "'*'"); break;
 		case TOK_DIV: fprintf(listing, "'/'"); break;
-		case TOK_MOD: fprintf(listing, "'%'"); break;
+		case TOK_MOD: fprintf(listing, "'%%'"); break;
 		case TOK_COLON: fprintf(listing, "':'"); break;
 		case TOK_SEMI: fprintf(listing, "';'"); break;
 		case TOK_LPAREN: fprintf(listing, "'('"); break;
 		case TOK_RPAREN: fprintf(listing, "')'"); break;
 		case TOK_COMMA: fprintf(listing, "','"); break;
+
+		case TOK_EOF: fprintf(listing, "TOK_EOF"); break;
 	}
 
 	if (nl)
