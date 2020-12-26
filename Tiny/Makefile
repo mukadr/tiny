@@ -1,16 +1,19 @@
+CC = gcc
+CFLAGS += -Wall -O2
+
 tiny: main.o scan.o parse.o util.o symtab.o analyze.o cgen.o
-	gcc main.o scan.o parse.o util.o symtab.o analyze.o cgen.o -o tiny
+	$(CC) $(CFLAGS) main.o scan.o parse.o util.o symtab.o analyze.o cgen.o -o tiny
 main.o: main.c scan.h globals.h
-	gcc -c main.c
+	$(CC) $(CFLAGS) -c main.c
 scan.o: scan.c scan.h globals.h
-	gcc -c scan.c
+	$(CC) $(CFLAGS) -c scan.c
 parse.o: parse.c parse.h globals.h
-	gcc -c parse.c
+	$(CC) $(CFLAGS) -c parse.c
 util.o: util.c util.h globals.h
-	gcc -c util.c
+	$(CC) $(CFLAGS) -c util.c
 symtab.o: symtab.c symtab.h globals.h
-	gcc -c symtab.c
+	$(CC) $(CFLAGS) -c symtab.c
 analyze.o: analyze.c analyze.h globals.h
-	gcc -c analyze.c
+	$(CC) $(CFLAGS) -c analyze.c
 cgen.o: cgen.c cgen.h globals.h
-	gcc -c cgen.c
+	$(CC) $(CFLAGS) -c cgen.c
