@@ -2,6 +2,7 @@
  *   			  SCAN.C -> ANALISADOR LÉXICO
  *******************************************************************/
 
+#include <ctype.h>
 #include <stdio.h>
 #include <string.h>
 
