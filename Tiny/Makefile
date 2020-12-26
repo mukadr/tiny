@@ -17,3 +17,8 @@ analyze.o: analyze.c analyze.h globals.h
 	$(CC) $(CFLAGS) -c analyze.c
 cgen.o: cgen.c cgen.h globals.h
 	$(CC) $(CFLAGS) -c cgen.c
+
+clean:
+	rm -f *.o tiny
+
+.PHONY: clean
