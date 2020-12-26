@@ -112,7 +112,7 @@ TreeNode *parse()
 
 static void parseError(const char *s)
 {
-	fprintf(listing, "Syntax error: %s[%d]\n", s, lineNum);
+	fprintf(listing, "Syntax error: %s[%lu]\n", s, lineNum);
 	destroyTree(progTree);
 	exit(1);
 }
