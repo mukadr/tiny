@@ -1,3 +1,5 @@
+#include <assert.h>
+
 #include "analyze.h"
 #include "symtab.h"
 
@@ -77,6 +79,9 @@ void typeCheck(TreeNode *t)
 						analyzeError = TRUE;
 						break;
 					}				
+					break;
+				default:
+					assert(!"unreachable code");
 					break;
 			}
 		} 
