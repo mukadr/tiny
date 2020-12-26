@@ -277,7 +277,7 @@ void printToken(TokenType tok, const char *tokStr, int nl)
 		case TOK_DO:
 		case TOK_TRUE:
 		case TOK_FALSE:
-			fprintf(listing, "Reserved: %s", reservedTable[getReservedStr(tok)]);
+			fprintf(listing, "Reserved: %s", reservedTable[getReservedStr(tok)].s);
 			break;
 		case TOK_ID: fprintf(listing, "TOK_ID: %s", tokStr); break;
 		case TOK_NUM: fprintf(listing, "TOK_NUM: %s", tokStr); break;
