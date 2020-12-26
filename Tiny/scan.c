@@ -281,7 +281,7 @@ void printToken(TokenType tok, const char *tokStr, int nl)
 			break;
 		case TOK_ID: fprintf(listing, "TOK_ID: %s", tokStr); break;
 		case TOK_NUM: fprintf(listing, "TOK_NUM: %s", tokStr); break;
-		case TOK_ERROR: fprintf(listing, "TOK_ERROR", tokStr); break;
+		case TOK_ERROR: fprintf(listing, "TOK_ERROR"); break;
 
 		case TOK_ASSIGN: fprintf(listing, "':='"); break;
 		case TOK_EQ: fprintf(listing, "'='"); break;
