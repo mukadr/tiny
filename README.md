@@ -29,3 +29,9 @@ make
 tiny fibonnaci.tny fibonnaci.tc
 tm fibonnaci.tc
 ```
+
+## Screenshots
+
+![Fibonnaci in Tiny](screenshots/code.png)
+
+![TM execution](screenshots/execution.png)
