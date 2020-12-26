@@ -233,6 +233,9 @@ TokenType getToken()
 					save = FALSE;
 				}
 				break;
+
+			case DONE:
+				break;
 		}
 		if (save)
 			tokenStr[tokenStrIdx++] = currentChar;
