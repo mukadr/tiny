@@ -80,6 +80,10 @@ void typeCheck(TreeNode *t)
 						break;
 					}				
 					break;
+				case ReadK:
+					break;
+				case WriteK:
+					break;
 				default:
 					assert(!"unreachable code");
 					break;
