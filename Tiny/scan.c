@@ -294,7 +294,7 @@ void printToken(TokenType tok, const char *tokStr, int nl)
 		case TOK_SUB: fprintf(listing, "'-'"); break;
 		case TOK_MUL: fprintf(listing, "'*'"); break;
 		case TOK_DIV: fprintf(listing, "'/'"); break;
-		case TOK_MOD: fprintf(listing, "'%'"); break;
+		case TOK_MOD: fprintf(listing, "'%%'"); break;
 		case TOK_COLON: fprintf(listing, "':'"); break;
 		case TOK_SEMI: fprintf(listing, "';'"); break;
 		case TOK_LPAREN: fprintf(listing, "'('"); break;
