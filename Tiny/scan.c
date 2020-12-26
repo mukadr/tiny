@@ -57,6 +57,7 @@ static int getReservedStr(TokenType tok)
 	for (i = 0; i < MAX_RESERVED; i++)
 		if (tok == reservedTable[i].t)
 			return i;
+	return 0;
 }
 
 static char getNextChar()
