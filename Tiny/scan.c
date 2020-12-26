@@ -300,6 +300,8 @@ void printToken(TokenType tok, const char *tokStr, int nl)
 		case TOK_LPAREN: fprintf(listing, "'('"); break;
 		case TOK_RPAREN: fprintf(listing, "')'"); break;
 		case TOK_COMMA: fprintf(listing, "','"); break;
+
+		case TOK_EOF: fprintf(listing, "TOK_EOF"); break;
 	}
 
 	if (nl)
